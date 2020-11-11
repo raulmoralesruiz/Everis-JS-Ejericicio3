@@ -60,3 +60,46 @@ const colorList = [
     hex: '#c0c0c0'
   }
 ];
+
+let lista = document.getElementsByClassName("color-list")[0];
+
+
+for (elemento of colorList) {
+  console.log(elemento);
+
+  let newLi = document.createElement("li");
+  newLi.classList.add("color-item");
+
+  let liDivName = document.createElement("div");
+  liDivName.classList.add("color-name");
+  liDivName.textContent = `Color: ${elemento.colorName}`;
+
+  let liDivShow = document.createElement("div");
+  liDivShow.classList.add("color-show");
+  liDivShow.textContent = `Muestra`;
+  liDivShow.setAttribute("style", `background-color: ${elemento.hex};`);
+
+  let liButtonNext = document.createElement("button");
+  liButtonNext.classList.add("color-set");
+  liButtonNext.textContent = `Next item color`;
+
+
+  let liButtonPage = document.createElement("button");
+  liButtonPage.classList.add("color-set");
+  liButtonPage.textContent = `Page color`;
+
+
+  newLi.appendChild(liDivName);
+  newLi.appendChild(liDivShow);
+  newLi.appendChild(liButtonNext);
+  newLi.appendChild(liButtonPage);
+  lista.appendChild(newLi);
+}
+
+// La estructura de un item de la lista deberá quedar con de la siguiente forma en el HTML (ejemplo del item para el color "white"):
+// <li class="color-item">
+// 	<div class="color-name">Color: white</div>
+// 	<div class="color-show">Muestra</div>
+// 	<button class="color-set">Next item color</button>
+// 	<button class="color-set">Page color</button>
+// </li>
